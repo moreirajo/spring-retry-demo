@@ -1,0 +1,14 @@
+version: '3'
+services:
+  rabbit:
+    image: rabbitmq:management
+    container_name: rabbit
+    ports:
+      - 5672:5672
+      - 15672:15672
+  demo:
+    build: .
+    container_name: demo
+    ports:
+      - 8080:8080
+      - 8000:8000

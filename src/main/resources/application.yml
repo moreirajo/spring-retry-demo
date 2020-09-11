@@ -1,0 +1,17 @@
+spring:
+    application:
+        name: retry-demo
+    cloud:
+        function:
+            definition: handleMessageA;sender
+        stream:
+            bindings:
+                handleMessageA-in-0:
+                    destination: message-a-handler
+                    consumer:
+                      max-attempts: 1
+                sender-out-0:
+                    destination: message-a-handler
+    rabbitmq:
+        host: rabbit
+        
